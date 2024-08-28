@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+mongoose.set('strictPopulate', false);
+
 const productSchema = new mongoose.Schema({
     name : {
         type: String,

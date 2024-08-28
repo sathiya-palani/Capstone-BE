@@ -56,8 +56,8 @@ exports.newProduct = catchAsyncError(async (req, res, next)=>{
 
 //Get Single Product - api/v1/product/:id
 exports.getSingleProduct = catchAsyncError(async(req, res, next) => {
-    const product = await Product.findById(req.params.id).populate('reviews.user','name email');
-
+    const product = await Product.findById(req.params.id).populate('name email');
+    console.log(product);
     if(!product) {
         return next(new ErrorHandler('Product not found', 400));
     }
